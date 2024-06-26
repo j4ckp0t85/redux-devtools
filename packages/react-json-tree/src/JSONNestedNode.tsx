@@ -3,7 +3,7 @@ import JSONArrow from './JSONArrow.js';
 import getCollectionEntries from './getCollectionEntries.js';
 import JSONNode from './JSONNode.js';
 import ItemRange from './ItemRange.js';
-import type { CircularCache, CommonInternalProps } from './types.js';
+import type { CircularCache, CommonInternalProps, KeyPath } from './types.js';
 
 /**
  * Renders nested values (eg. objects, arrays, lists, etc.)
@@ -111,16 +111,20 @@ export default function JSONNestedNode(props: Props) {
     nodeTypeIndicator,
     shouldExpandNodeInitially,
     styling,
+    searchResultPath,
   } = props;
 
-  const [expanded, setExpanded] = useState<boolean>(
+  const [userExpanded, setUserExpanded] = useState<boolean>(
     // calculate individual node expansion if necessary
     isCircular ? false : shouldExpandNodeInitially(keyPath, data, level),
   );
 
   const handleClick = useCallback(() => {
-    if (expandable) setExpanded(!expanded);
-  }, [expandable, expanded]);
+    if (expandable) setUserExpanded(!userExpanded);
+  }, [expandable, userExpanded]);
+
+  const expanded =
+  userExpanded || containsSearchResult(keyPath, searchResultPath, level);
 
   const renderedChildren =
     expanded || (hideRoot && level === 0)
@@ -175,3 +179,15 @@ export default function JSONNestedNode(props: Props) {
     </li>
   );
 }
+
+const containsSearchResult = (
+  ownKeyPath: KeyPath,
+  resultKeyPath: KeyPath,
+  level: number
+): boolean => {
+  const searchLevel = level > 0 ? level - 1 : level;
+  const currKey = [...ownKeyPath].reverse()[searchLevel];
+  return resultKeyPath && currKey !== undefined
+    ? resultKeyPath[searchLevel] === currKey.toString()
+    : false;
+};

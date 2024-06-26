@@ -132,6 +132,7 @@ export interface ExternalProps<S, A extends Action<string>> {
   invertTheme: boolean;
   sortStateTreeAlphabetically: boolean;
   disableStateTreeCollection: boolean;
+  enableSearchPanel: boolean;
   dataTypeKey?: string | symbol;
   tabs: Tab<S, A>[] | ((tabs: Tab<S, A>[]) => Tab<S, A>[]);
 }
@@ -160,6 +161,7 @@ export interface DevtoolsInspectorProps<S, A extends Action<string>>
   hideActionButtons?: boolean;
   sortStateTreeAlphabetically: boolean;
   disableStateTreeCollection: boolean;
+  enableSearchPanel: boolean;
   invertTheme: boolean;
   dataTypeKey?: string | symbol;
   tabs: Tab<S, A>[] | ((tabs: Tab<S, A>[]) => Tab<S, A>[]);
@@ -258,6 +260,7 @@ class DevtoolsInspector<S, A extends Action<string>> extends PureComponent<
       hideActionButtons,
       sortStateTreeAlphabetically,
       disableStateTreeCollection,
+      enableSearchPanel,
     } = this.props;
     const { selectedActionId, startActionId, searchValue, tabName } =
       monitorState;
@@ -334,6 +337,7 @@ class DevtoolsInspector<S, A extends Action<string>> extends PureComponent<
               dataTypeKey,
               sortStateTreeAlphabetically,
               disableStateTreeCollection,
+              enableSearchPanel,
             }}
             monitorState={this.props.monitorState}
             updateMonitorState={this.updateMonitorState}

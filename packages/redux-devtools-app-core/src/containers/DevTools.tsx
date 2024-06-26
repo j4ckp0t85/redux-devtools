@@ -118,6 +118,7 @@ class DevTools extends Component<Props> {
           disableStateTreeCollection={
             this.props.stateTreeSettings.disableCollection
           }
+          enableSearchPanel={this.props.stateTreeSettings.enableSearchPanel}
         />
       </div>
     );

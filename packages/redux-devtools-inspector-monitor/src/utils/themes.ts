@@ -22,6 +22,7 @@ declare module '@emotion/react' {
     SELECTED_BACKGROUND_COLOR: string;
     SKIPPED_BACKGROUND_COLOR: string;
     HEADER_BACKGROUND_COLOR: string;
+    HEADER_BACKGROUND_COLOR_OPAQUE: string;
     HEADER_BORDER_COLOR: string;
     BORDER_COLOR: string;
     LIST_BORDER_COLOR: string;
@@ -39,6 +40,7 @@ declare module '@emotion/react' {
     LINK_COLOR: string;
     LINK_HOVER_COLOR: string;
     ERROR_COLOR: string;
+    SEARCH_BUTTON_COLOR: string;
   }
 }
 
@@ -49,6 +51,7 @@ const colorMap = (theme: Base16Theme) => ({
   SELECTED_BACKGROUND_COLOR: rgba(theme.base03, 20),
   SKIPPED_BACKGROUND_COLOR: rgba(theme.base03, 10),
   HEADER_BACKGROUND_COLOR: rgba(theme.base03, 30),
+  HEADER_BACKGROUND_COLOR_OPAQUE: rgba(theme.base03, 100),
   HEADER_BORDER_COLOR: rgba(theme.base03, 20),
   BORDER_COLOR: rgba(theme.base03, 50),
   LIST_BORDER_COLOR: rgba(theme.base03, 50),
@@ -66,6 +69,7 @@ const colorMap = (theme: Base16Theme) => ({
   LINK_COLOR: rgba(theme.base0E, 90),
   LINK_HOVER_COLOR: theme.base0E,
   ERROR_COLOR: theme.base08,
+  SEARCH_BUTTON_COLOR: rgba(theme.base00, 50),
 });
 
 export function createInspectorMonitorThemeFromBase16Theme(

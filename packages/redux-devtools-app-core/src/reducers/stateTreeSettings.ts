@@ -4,12 +4,14 @@ import { CoreStoreAction } from '../actions';
 export interface StateTreeSettings {
   readonly sortAlphabetically: boolean;
   readonly disableCollection: boolean;
+  readonly enableSearchPanel: boolean;
 }
 
 export function stateTreeSettings(
   state: StateTreeSettings = {
     sortAlphabetically: false,
     disableCollection: false,
+    enableSearchPanel: false,
   },
   action: CoreStoreAction,
 ) {
@@ -17,6 +19,7 @@ export function stateTreeSettings(
     return {
       sortAlphabetically: action.sortAlphabetically,
       disableCollection: action.disableCollection,
+      enableSearchPanel: action.enableSearchPanel,
     };
   }
   return state;

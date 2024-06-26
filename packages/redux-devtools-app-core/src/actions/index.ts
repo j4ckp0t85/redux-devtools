@@ -70,6 +70,7 @@ export function changeTheme(data: ChangeThemeData): ChangeThemeAction {
 interface ChangeStateTreeSettingsFormData {
   readonly sortAlphabetically: boolean;
   readonly disableCollection: boolean;
+  readonly enableSearchPanel: boolean;
 }
 
 interface ChangeStateTreeSettingsData {
@@ -80,6 +81,7 @@ export interface ChangeStateTreeSettingsAction {
   readonly type: typeof CHANGE_STATE_TREE_SETTINGS;
   readonly sortAlphabetically: boolean;
   readonly disableCollection: boolean;
+  readonly enableSearchPanel: boolean;
 }
 
 export function changeStateTreeSettings(
