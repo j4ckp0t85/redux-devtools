@@ -55,7 +55,7 @@ interface ChangeThemeFormData {
   readonly colorPreference: 'auto' | 'light' | 'dark';
 }
 interface ChangeThemeData {
-  readonly formData: ChangeThemeFormData;
+  readonly formData?: ChangeThemeFormData;
 }
 export interface ChangeThemeAction {
   readonly type: typeof CHANGE_THEME;
@@ -64,7 +64,7 @@ export interface ChangeThemeAction {
   readonly colorPreference: 'auto' | 'light' | 'dark';
 }
 export function changeTheme(data: ChangeThemeData): ChangeThemeAction {
-  return { type: CHANGE_THEME, ...data.formData };
+  return { type: CHANGE_THEME, ...data.formData! };
 }
 
 interface ChangeStateTreeSettingsFormData {
@@ -74,7 +74,7 @@ interface ChangeStateTreeSettingsFormData {
 }
 
 interface ChangeStateTreeSettingsData {
-  readonly formData: ChangeStateTreeSettingsFormData;
+  readonly formData?: ChangeStateTreeSettingsFormData;
 }
 
 export interface ChangeStateTreeSettingsAction {
@@ -87,7 +87,7 @@ export interface ChangeStateTreeSettingsAction {
 export function changeStateTreeSettings(
   data: ChangeStateTreeSettingsData,
 ): ChangeStateTreeSettingsAction {
-  return { type: CHANGE_STATE_TREE_SETTINGS, ...data.formData };
+  return { type: CHANGE_STATE_TREE_SETTINGS, ...data.formData! };
 }
 
 export interface InitMonitorAction {
@@ -387,7 +387,7 @@ export interface RequestBase {
   libConfig?: LibConfig;
   actionsById?: string;
   computedStates?: string;
-  // eslint-disable-next-line @typescript-eslint/ban-types
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   payload?: {} | string;
   liftedState?: Partial<State>;
 }
