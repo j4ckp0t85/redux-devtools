@@ -3,6 +3,8 @@
 [![OpenCollective](https://opencollective.com/redux-devtools-extension/backers/badge.svg)](#backers)
 [![OpenCollective](https://opencollective.com/redux-devtools-extension/sponsors/badge.svg)](#sponsors)
 
+Customized version to include the search feature in state (keys/values)
+
 # Redux DevTools
 
 Developer Tools to power-up [Redux](https://redux.js.org/) development workflow or any other architecture which handles the state change (see [integrations](https://github.com/reduxjs/redux-devtools/blob/main/extension/docs/Integrations.md)).
